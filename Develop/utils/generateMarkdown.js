@@ -1,7 +1,3 @@
-const fs = require('fs');
-const inquirer = require('inquirer');
-const index = require('index');
-
 function renderLicenseBadge(license) {
   let badge = '';
   if (license === 'MIT') {
@@ -49,10 +45,25 @@ function renderLicenseSection(license) {
   return licenseSection;
 }
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(input) {
-  return `# ${input.title}`;
-
+function generateMarkdown(data) {
+  return `
+  # ${data.title}
+    
+  ## Description
+  ${data.description}
+  ## Table of Contents
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [License](#license)
+  - [Contributions](#contribution)
+  - [Test](#test)
+  - [Questions](#questions)
+  ---
+  ## Installation
+  ${data.installation}
+  `;
 }
+
 
 module.exports = generateMarkdown;
 
